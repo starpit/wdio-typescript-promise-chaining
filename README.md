@@ -1,0 +1,1 @@
+# wdio-typescript-promise-chaining
