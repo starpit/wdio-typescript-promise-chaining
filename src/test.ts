@@ -15,18 +15,25 @@ function afterAll() {
   app.stop()
 }
 
-describe('test', function() {
+describe('test 1', function() {
   this.timeout(10000)
   before(beforeAll)
   after(afterAll)
 
   it('should getText with promise.then', async () => {
-    const h1 = await app.client.$('h1')
+    await app.client.$('h1')
       .then(_ => _.waitForExist())
 
-    const text = await h1.getText()
+    const text = await app.client.$('h1')
+      .then(_ => _.getText())
     strictEqual(text, 'Hello World!')
   })
+})
+
+describe('test 2', function() {
+  this.timeout(10000)
+  before(beforeAll)
+  after(afterAll)
 
   it('should getText with await', async () => {
     const h1 = await app.client.$('h1')
