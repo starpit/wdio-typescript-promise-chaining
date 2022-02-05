@@ -25,7 +25,7 @@ describe('test 1', function() {
       .then(_ => _.waitForExist())
 
     const text = await app.client.$('h1')
-      .then(_ => _.getText())
+      .then(_ => _.getText()) // <-- compilation error, possibly due to missing ThenArg?
     strictEqual(text, 'Hello World!')
   })
 })
